@@ -1,4 +1,4 @@
-const app = (function() {
+(function() {
 
     const input = document.getElementById("input");
     const unitInput = document.getElementById("unit_input");

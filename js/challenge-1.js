@@ -1,4 +1,4 @@
-let app = (function() {
+(function() {
 
     const inputNumber = document.getElementById("inputNumber");
     const output = document.getElementById("output");
