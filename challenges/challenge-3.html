@@ -18,40 +18,44 @@
                 <h1>Challenge 03</h1>
                 <p>Local Storage playground</p>
 
-
-                <div class="box">
-                    <p class="txt"></p>
-                    <div>
-                        <h3 class="txt">Customer</h3>
-                        <label>First name</label><input class="small-margin" type="text" name="firstName" placeholder="">
-                        <label>Surname</label><input class="small-margin" type="text" name="surname" >
-                        <label>Street</label><input class="small-margin" type="text" name="street" >
-                        <label>City</label><input class="small-margin" type="text" name="city" >
-                        <label>Postcode</label><input class="small-margin" type="text" name="postcode" >
-                    </div>
-
-                    <div>
-                        <h3 class="txt">Company</h3>
-                        <label>Name</label><input class="small-margin" type="text" name="companyName" >
-                        <label>Street</label><input class="small-margin" type="text" name="companyStreet" >
-                        <label>City</label><input class="small-margin" type="text" name="companyCity" >
-                        <label>Postcode</label><input class="small-margin" type="text" name="companyPostcode" >
-                        <label>Tax number</label><input class="small-margin" type="text" name="companyTaxNumber" placeholder="Example: 000 000 000"  pattern="[0-9]{9}" maxlength="9" >
-                    </div>
-
-                    <div>
-                        <h3 class="txt">Invoice</h3>
-                        <label>Price</label><input class="small-margin" type="number" name="price" min="0">
-                        <h4 class="txt">Invoice status</h4>
-                        <input class="small-margin" type="radio" name="status" value="created" checked>
-                        <input class="small-margin" type="radio" name="status" value="delivered">
-                        <input class="small-margin" type="radio" name="status" value="paid">
-                        <input class="small-margin" type="radio" name="status" value="overdue">
-                    </div>
-
-                </div>
             </div>
+        </div>
+        <div class="row">
+                <div class="box col-xs-12">
+                    <div class="row">
 
+                    <p class="txt"></p>
+                    <div class="">
+                        <h3 class="txt">Customer</h3>
+                        <p class="input col-xs-12 col-sm-4"><label>First name</label><input class="small-margin" type="text" id="firstName" placeholder="" ></p>
+                        <p class="input col-xs-12 col-sm-4"><label>Surname</label><input class="small-margin" type="text" id="surname" ></p>
+                        <p class="input col-xs-12 col-sm-4"><label>Street</label><input class="small-margin" type="text" id="street" ></p>
+                        <p class="input col-xs-12 col-sm-4"><label>City</label><input class="small-margin" type="text" id="city" ></p>
+                        <p class="input col-xs-12 col-sm-4"><label>Postcode</label><input class="small-margin" type="text" id="postcode" ></p>
+                    </div>
+
+                    <div class="">
+                        <h3 class="txt">Company</h3>
+                        <p class="input col-xs-12 col-sm-4"><label>Name</label><input class="small-margin" type="text" id="companyName" ></p>
+                        <p class="input col-xs-12 col-sm-4"><label>Street</label><input class="small-margin" type="text" id="companyStreet" ></p>
+                        <p class="input col-xs-12 col-sm-4"><label>City</label><input class="small-margin" type="text" id="companyCity" ></p>
+                        <p class="input col-xs-12 col-sm-4"><label>Postcode</label><input class="small-margin" type="text" id="companyPostcode" ></p>
+                        <p class="input col-xs-12 col-sm-4"><label>Tax number</label><input class="small-margin" type="text" id="companyTaxNumber" placeholder="Example: 000 000 000"  pattern="[0-9]{9}" maxlength="9" ></p>
+                    </div>
+
+                    <div class="">
+                        <h3 class="txt">Invoice</h3>
+                        <label>Price</label><input class="small-margin" type="number" id="price" min="0">
+                        <h4 class="txt">Invoice status</h4>
+                        <p class="input col-xs-12 col-sm-4">
+                            <input class="small-margin" type="radio" name="status" id="created" checked>
+                            <input class="small-margin" type="radio" name="status" id="delivered">
+                            <input class="small-margin" type="radio" name="status" id="paid">
+                            <input class="small-margin" type="radio" name="status" id="overdue">
+                        </p>
+                    </div>
+                    </div>
+                </div>
         </div>
     </div>
 

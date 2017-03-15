@@ -1,43 +1,41 @@
 (function() {
 
     const formElems = [
-        customerFirstName = document.getElementsByName("firstName"),
-        customerSurname   = document.getElementsByName("surname"),
-        customerStreet    = document.getElementsByName("street"),
-        customerCity      = document.getElementsByName("city"),
-        customerPostcode  = document.getElementsByName("postcode"),
+        customerFirstName = document.getElementById("firstName"),
+        customerSurname   = document.getElementById("surname"),
+        customerStreet    = document.getElementById("street"),
+        customerCity      = document.getElementById("city"),
+        customerPostcode  = document.getElementById("postcode"),
 
-        companyName       = document.getElementsByName("name"),
-        companyStreet     = document.getElementsByName("companyStreet"),
-        companyCity       = document.getElementsByName("companyCity"),
-        companyPostcode   = document.getElementsByName("companyPostcode"),
-        companyTaxNumber  = document.getElementsByName("companyTaxNumber"),
+        companyName       = document.getElementById("companyName"),
+        companyStreet     = document.getElementById("companyStreet"),
+        companyCity       = document.getElementById("companyCity"),
+        companyPostcode   = document.getElementById("companyPostcode"),
+        companyTaxNumber  = document.getElementById("companyTaxNumber"),
 
-        price             = document.getElementsByName("price")
+        price             = document.getElementById("price")
     ]
 
-    status            = document.getElementsByName("status");
-    /*const radiob            = document.getElementsByName("status");
-    const customerFirstName = document.getElementsByName("firstName");
-    const customerSurname   = document.getElementsByName("surname");
-    const customerStreet    = document.getElementsByName("street");
-    const customerCity      = document.getElementsByName("city");
-    const customerPostcode  = document.getElementsByName("postcode");
-
-    const companyName       = document.getElementsByName("name");
-    const companyStreet     = document.getElementsByName("companyStreet");
-    const companyCity       = document.getElementsByName("companyCity");
-    const companyPostcode   = document.getElementsByName("companyPostcode");
-    const companyTaxNumber  = document.getElementsByName("companyTaxNumber");
-
-    const price             = document.getElementsByName("price");
-    const status            = document.getElementsByName("status");*/
+        status            = Array.from(document.getElementsByName("status"))
 
     const ls = localStorage;
+    let delay;
+
+    function delayEvent(elem){
+        delay = setTimeout(saveItem.bind(this, elem),1000);
+    }
+
+    function clearEvent(){
+        clearTimeout(delay);
+    }
+
+
 
     function saveItem(input)
     {
-        ls.setItem(input.name, input.value);
+        ls.setItem(input.id, input.value);
+        console.log(`Saved item: "${input.id}" : "${input.value}"`);
+        updateModifyTime();
     }
 
     function updateModifyTime()
@@ -45,11 +43,22 @@
         ls.setItem("modifyTime", new Date());
     }
 
+    //formElems[i].addEventListener("click", function(){});
     let elemsCount = formElems.length;
     /*for (let i=0;i<elemsCount;i++) {
-        formElems[i].addEventListener('keyup', saveItem);
+        formElems[i].addEventListener("click", function(){});
     }*/
 
-console.dir(formElems);
+    formElems.forEach((elem)=>{
+        elem.addEventListener("keyup", function(){
+            delayEvent(elem);
+        });
+
+        elem.addEventListener("keydown", function(){
+            clearEvent()
+        });
+    });
+
+
 
 })();
