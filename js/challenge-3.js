@@ -16,13 +16,14 @@
         price             = document.getElementById("price")
     ]
 
-        status            = Array.from(document.getElementsByName("status"))
+    const status            = Array.from(document.getElementsByName("status"))
+    const lastModified      = document.getElementById("lastModified");
 
     const ls = localStorage;
     let delay;
 
-    function delayEvent(elem){
-        delay = setTimeout(saveItem.bind(this, elem),1000);
+    function delayEvent(){
+        delay = setTimeout(saveItems,1000);
     }
 
     function clearEvent(){
@@ -31,10 +32,12 @@
 
 
 
-    function saveItem(input)
+    function saveItems()
     {
-        ls.setItem(input.id, input.value);
-        console.log(`Saved item: "${input.id}" : "${input.value}"`);
+        formElems.forEach(function(elem){
+            ls.setItem(elem.id, elem.value);
+            console.log(`Saved item: "${elem.id}" : "${elem.value}"`);
+        });
         updateModifyTime();
     }
 
@@ -43,15 +46,14 @@
         ls.setItem("modifyTime", new Date());
     }
 
-    //formElems[i].addEventListener("click", function(){});
-    let elemsCount = formElems.length;
-    /*for (let i=0;i<elemsCount;i++) {
-        formElems[i].addEventListener("click", function(){});
-    }*/
+    function getLastModifiedTime()
+    {
+        return ls.getItem("modifyTime") || "Sorry, You never use this application :(";
+    }
 
     formElems.forEach((elem)=>{
         elem.addEventListener("keyup", function(){
-            delayEvent(elem);
+            delayEvent();
         });
 
         elem.addEventListener("keydown", function(){
@@ -59,6 +61,11 @@
         });
     });
 
+    status.addEventListener("change", function(){
+            clearEvent()
+            delayEvent();
+        });
 
 
+    lastModified.innerText = "Last modified: " + getLastModifiedTime();
 })();

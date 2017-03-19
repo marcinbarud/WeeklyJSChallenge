@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="author" content="Marcin Barud">
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="../css/style.css">
+        <link rel="stylesheet" type="text/css" href="../css/challenge-3.css">
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -17,23 +17,23 @@
             <div class="my-container col-xs-12 ">
                 <h1>Challenge 03</h1>
                 <p>Local Storage playground</p>
+                <span id="lastModified"></span>
 
             </div>
         </div>
         <div class="row">
                 <div class="box col-xs-12">
                     <div class="row">
-
-                    <p class="txt"></p>
-                    <div class="">
-                        <h3 class="txt">Customer</h3>
-                        <p class="input col-xs-12 col-sm-4"><label>First name</label><input class="small-margin" type="text" id="firstName" placeholder="" ></p>
-                        <p class="input col-xs-12 col-sm-4"><label>Surname</label><input class="small-margin" type="text" id="surname" ></p>
-                        <p class="input col-xs-12 col-sm-4"><label>Street</label><input class="small-margin" type="text" id="street" ></p>
-                        <p class="input col-xs-12 col-sm-4"><label>City</label><input class="small-margin" type="text" id="city" ></p>
-                        <p class="input col-xs-12 col-sm-4"><label>Postcode</label><input class="small-margin" type="text" id="postcode" ></p>
+                        <div class="">
+                            <h3 class="txt">Customer</h3>
+                            <p class="input col-xs-12 col-sm-4"><label>First name</label><input class="small-margin" type="text" id="firstName" placeholder="" ></p>
+                            <p class="input col-xs-12 col-sm-4"><label>Surname</label><input class="small-margin" type="text" id="surname" ></p>
+                            <p class="input col-xs-12 col-sm-4"><label>Street</label><input class="small-margin" type="text" id="street" ></p>
+                            <p class="input col-xs-12 col-sm-4"><label>City</label><input class="small-margin" type="text" id="city" ></p>
+                            <p class="input col-xs-12 col-sm-4"><label>Postcode</label><input class="small-margin" type="text" id="postcode" ></p>
+                        </div>
                     </div>
-
+<div class="row">
                     <div class="">
                         <h3 class="txt">Company</h3>
                         <p class="input col-xs-12 col-sm-4"><label>Name</label><input class="small-margin" type="text" id="companyName" ></p>
@@ -42,17 +42,24 @@
                         <p class="input col-xs-12 col-sm-4"><label>Postcode</label><input class="small-margin" type="text" id="companyPostcode" ></p>
                         <p class="input col-xs-12 col-sm-4"><label>Tax number</label><input class="small-margin" type="text" id="companyTaxNumber" placeholder="Example: 000 000 000"  pattern="[0-9]{9}" maxlength="9" ></p>
                     </div>
+</div>
+<div class="row">
 
                     <div class="">
                         <h3 class="txt">Invoice</h3>
-                        <label>Price</label><input class="small-margin" type="number" id="price" min="0">
-                        <h4 class="txt">Invoice status</h4>
-                        <p class="input col-xs-12 col-sm-4">
-                            <input class="small-margin" type="radio" name="status" id="created" checked>
-                            <input class="small-margin" type="radio" name="status" id="delivered">
-                            <input class="small-margin" type="radio" name="status" id="paid">
-                            <input class="small-margin" type="radio" name="status" id="overdue">
+                        <p class="col-xs-12 col-sm-12">
+                            <label>Price</label><input class="small-margin" type="number" id="price" min="0">
                         </p>
+                        <p class="radioButtons col-xs-12 col-sm-12">
+
+                            <label>Invoice status</label>
+                            <label for="" class="radio-inline"><input class="radio" type="radio" name="status" id="created" value="created" checked>Created</label>
+                            <label for="" class="radio-inline"><input class="radio" type="radio" name="status" id="delivered" value="delivered" >Delivered</label>
+                            <label for="" class="radio-inline"><input class="radio" type="radio" name="status" id="paid" value="paid">Paid</label>
+                            <label for="" class="radio-inline"><input class="radio" type="radio" name="status" id="overdue" value="overdue">Overdue</label>
+
+                        </p>
+</div>
                     </div>
                     </div>
                 </div>

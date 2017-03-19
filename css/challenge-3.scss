@@ -1,0 +1,24 @@
+@import 'common.scss';
+
+.radioButtons {
+    text-align: left;
+    color: $grey;
+
+    input {
+        display: inline-block;
+    }
+}
+.radio {
+    background-color: none;
+    border: 1px solid $lightgrey;
+    border-radius: 3px;
+    height: auto;
+    padding: none;
+    margin: none;
+    color: $grey;
+    max-width: none;
+    min-width: 0%;
+    color: $grey;
+    display: inline-block;
+    
+}
