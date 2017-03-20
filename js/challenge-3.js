@@ -22,22 +22,25 @@
     const ls = localStorage;
     let delay;
 
-    function delayEvent(){
-        delay = setTimeout(saveItems,1000);
+    function delaySaveEvent(){
+        delay = setTimeout(saveDataToLocalStorage,1000);
     }
 
-    function clearEvent(){
+    function clearSaveEvent(){
         clearTimeout(delay);
     }
 
 
 
-    function saveItems()
+    function saveDataToLocalStorage()
     {
+        let invoiceStatus = getStatusValue(status);
         formElems.forEach(function(elem){
             ls.setItem(elem.id, elem.value);
             console.log(`Saved item: "${elem.id}" : "${elem.value}"`);
         });
+        ls.setItem("Invoice status", invoiceStatus);
+        console.log(`Saved item: "Invoice status" : "${invoiceStatus}"`);
         updateModifyTime();
     }
 
@@ -51,21 +54,44 @@
         return ls.getItem("modifyTime") || "Sorry, You never use this application :(";
     }
 
+
+    function getStatusValue(){
+
+        let invoiceStatus;
+        status.forEach(function(elem){
+            if (elem.checked == true) {
+                invoiceStatus =  elem.value;
+            }
+        });
+
+        return invoiceStatus;
+    }
+
+
+
+
     formElems.forEach((elem)=>{
         elem.addEventListener("keyup", function(){
-            delayEvent();
+            delaySaveEvent();
         });
 
         elem.addEventListener("keydown", function(){
-            clearEvent()
+            clearSaveEvent()
         });
     });
 
-    status.addEventListener("change", function(){
-            clearEvent()
-            delayEvent();
-        });
+    status.forEach((elem)=>{
+        console.log(elem);
+        elem.addEventListener("click", function(){
+            console.log(getStatusValue());
 
+            //clearSaveEvent()
+            //delaySaveEvent();
+        });
+    });
 
     lastModified.innerText = "Last modified: " + getLastModifiedTime();
+
+
+
 })();
