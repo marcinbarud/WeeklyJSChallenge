@@ -20,7 +20,7 @@ html, body {
 
 body {
     background-size: cover;
-    background: url('../assets/bg.jpg') no-repeat center fixed;
+    background: url('../../assets/bg.jpg') no-repeat center fixed;
 }
 
 h1 {
@@ -73,11 +73,6 @@ a:hover, a:focus, a:active {
     margin-bottom: 10px; 
 }
 
-.challengr-info {
-    color:$orange;
-    font-size: 14px;
-    margin: 10px auto;
-}
 
 input, select {
     background-color: none;
@@ -163,4 +158,71 @@ label {
     border-radius: 10px;
     margin:50px auto;
     text-align: center;
+
+    @media(max-width: 767px) {
+        text-align: left;
+        padding: 10px;
+    }
+}
+
+.radioButtons {
+    text-align: center;
+    color: $grey;
+
+    input {
+        display: inline-block;
+    }
+
+    label {
+        margin-right: 0px;
+    }
+
+    h5 {
+        text-align: center;
+        color: $grey;
+    }
+}
+.radio {
+    background-color: none;
+    border: 1px solid $lightgrey;
+    border-radius: 3px;
+    height: auto;
+    padding: none;
+    margin: none;
+    color: $grey;
+    max-width: none;
+    min-width: 0%;
+    color: $grey;
+    display: inline-block;
+
+    &-inline {
+        width: auto;
+        margin-right: 20px;
+    }
+}
+
+p.input {
+    @media(max-width: 767px) {
+        padding: 0;
+    }
+}
+
+.form {
+    @media(max-width: 767px) {
+        text-align: center;
+
+        label {
+            display: block;
+            width: auto;
+            text-align: center;
+        }
+
+        p.input {
+            text-align: center;
+        }
+    }
+}
+
+.row {
+    margin: 0 15px;
 }

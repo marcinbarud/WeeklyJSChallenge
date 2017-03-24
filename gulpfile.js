@@ -3,10 +3,19 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var watch = require('gulp-watch');
+var babel = require('gulp-babel');
 
 gulp.task('sass', function(){
-    return gulp.src('./css/*.scss')
-    .pipe(watch('./css/*.scss'))
+    return gulp.src('./src/css/*.scss')
+    .pipe(watch('./src/css/*.scss'))
     .pipe(sass())
-    .pipe(gulp.dest('./css'));
+    .pipe(gulp.dest('./dist/css'));
+});
+
+gulp.task('default', () => {
+    return gulp.src('src/js/*.js')
+        .pipe(babel({
+            presets: ['es2015']
+        }))
+        .pipe(gulp.dest('./dist/js'));
 });
