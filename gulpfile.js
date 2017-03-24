@@ -12,10 +12,12 @@ gulp.task('sass', function(){
     .pipe(gulp.dest('./dist/css'));
 });
 
-gulp.task('default', () => {
+gulp.task('babel', () => {
     return gulp.src('src/js/*.js')
         .pipe(babel({
             presets: ['es2015']
         }))
         .pipe(gulp.dest('./dist/js'));
 });
+
+gulp.task('default', ['sass', 'babel']);
